@@ -6,7 +6,7 @@ on:
       IMG_URL:    
         description: 'IMG_URL'
         required: true
-        default: ''
+        default: 'https://alist.mcstark.edu.eu.org/d/Host/a10-recovery.img?sign=gvhrRnBFnGwUkSf83r4NsmMLQPjTV9nlWvdFPGKUNQM=:0'
 
 jobs:
   build:
@@ -44,4 +44,4 @@ jobs:
         tag_name: ${{ github.run_id }}
         body: DeviceTree for twrp
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
