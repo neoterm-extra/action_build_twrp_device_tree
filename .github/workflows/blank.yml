@@ -40,6 +40,6 @@ jobs:
       with:
         files: |
           ./DeviceTree.zip
-
+      token: ${{ secrets.MY_TOKEN }}
       env:
         GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
