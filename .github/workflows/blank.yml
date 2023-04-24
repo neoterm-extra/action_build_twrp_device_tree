@@ -40,7 +40,7 @@ jobs:
 
       run: |
 
-        aria2c "${{ github.event.inputs.IMG_URL }}"
+        aria2c "https://mirrorbits.lineageos.org/full/Mi439/20230419/recovery.img"
 
         ls -lh
 
