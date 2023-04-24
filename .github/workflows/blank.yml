@@ -1,6 +1,10 @@
 name: Make TWRP Device
 
 on:
+  push:
+    tags:
+      - "v1.0" 
+
   workflow_dispatch:
     inputs:
       IMG_URL:    
@@ -35,11 +39,15 @@ jobs:
     - name: ZIP device tree
       run: |
         zip -r DeviceTree.zip ./dt
-    - name: Upload to Release
+
+    - name: Create Release and Upload Release Asset
       uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
       with:
+        tag_name: ${{ github.ref }}
+        name: Release ${{ github.ref }}
+        body: TODO New Release.
+        draft: false
+        prerelease: false
         files: |
-          ./DeviceTree.zip
-      token: ${{ secrets.MY_TOKEN }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
+          DeviceTree.zip
