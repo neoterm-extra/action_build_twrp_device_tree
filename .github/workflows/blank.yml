@@ -64,9 +64,9 @@ jobs:
 
       with:
 
-        tag_name: ${{ github.ref }}
+        tag_name: a
 
-        release_name: Release ${{ github.ref }}
+        release_name: Release sgg
 
         body: TODO New Release.
 
