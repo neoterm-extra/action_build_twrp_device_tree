@@ -3,7 +3,7 @@ name: Make TWRP Device
 on:
   push:
     tags:
-      - "v1.0" 
+      - "v.*" 
 
   workflow_dispatch:
     inputs:
@@ -35,10 +35,7 @@ jobs:
       
     - name: Start build
       run: |
-        python3 -m twrpdtgen -o dt/ ./*.img
-    - name: ZIP device tree
-      run: |
-        zip -r DeviceTree.zip ./dt
+        python3 -m twrpdtgen -o dt/ ./*.img && zip -r DeviceTree.zip ./dt
 
     - name: Create Release and Upload Release Asset
       uses: softprops/action-gh-release@v1
